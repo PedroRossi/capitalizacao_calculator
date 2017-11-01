@@ -33,12 +33,12 @@ class Form extends Component {
         super(props);
         this.state = {
             aplicacao: 0,
-            aplicacaoError: null,
+            aplicacaoError: "",
             capitalizacao: null,
             tempo: "",
-            tempoError: null,
+            tempoError: "",
             juros: "",
-            jurosError: null,
+            jurosError: "",
             resultado: 0,
             open: false
         };
@@ -46,14 +46,22 @@ class Form extends Component {
 
     cleanFields = () => {
         this.setState({
-            aplicacao: 0,
-            aplicacaoError: null,
-            capitalizacao: null
+            aplicacao: "0",
+            aplicacaoError: "",
+            capitalizacao: null,
+            tempo: "",
+            tempoError: "",
+            juros: "",
+            jurosError: "",
+            resultado: 0
         });
     }
 
     calculate = () => {
-        const { aplicacao, capitalizacao, tempo, juros } = this.state;
+        let { aplicacao, capitalizacao, tempo, juros } = this.state;
+        aplicacao = Number(aplicacao);
+        tempo = Number(tempo);
+        juros = Number(juros);
         const resultado = calculate(aplicacao, capitalizacao, tempo, juros);
         this.setState({
             resultado: resultado,
@@ -74,7 +82,7 @@ class Form extends Component {
         if (Number.isNaN(n)) {
             stt[`${stateVar}Error`] = "Por favor digite um número!";
         } else {
-            stt[`${stateVar}Error`] = null;
+            stt[`${stateVar}Error`] = "";
         }
         this.setState(stt);
     }
@@ -132,9 +140,12 @@ class Form extends Component {
                         style={styles.button}
                         onClick={this.calculate}
                         disabled={
-                            this.state.aplicacaoError !== null || 
-                            this.state.tempoError !== null || 
-                            this.state.jurosError !== null || 
+                            this.state.aplicacaoError !== "" || 
+                            this.state.aplicacao === "" || 
+                            this.state.tempoError !== "" || 
+                            this.state.tempo === "" || 
+                            this.state.jurosError !== "" || 
+                            this.state.juros === "" || 
                             this.state.capitalizacao === null
                         }
                     />
