@@ -56,6 +56,7 @@ class Form extends Component {
         const { aplicacao, capitalizacao, tempo, juros } = this.state;
         const resultado = calculate(aplicacao, capitalizacao, tempo, juros);
         this.setState({
+            resultado: resultado,
             open: true
         });
     }
