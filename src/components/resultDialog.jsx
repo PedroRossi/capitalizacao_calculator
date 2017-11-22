@@ -16,7 +16,7 @@ class ResultDialog extends Component {
 
         return (
             <Dialog
-                title="Você vai pagar"
+                title="Você vai receber"
                 actions={actions}
                 modal={false}
                 open={this.props.open}
