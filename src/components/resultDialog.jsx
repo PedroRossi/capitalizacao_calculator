@@ -12,6 +12,7 @@ class ResultDialog extends Component {
                 onClick={this.props.onRequestClose}
             />
         ];
+        const result = parseFloat(this.props.result).toFixed(2);
 
         return (
             <Dialog
@@ -21,7 +22,7 @@ class ResultDialog extends Component {
                 open={this.props.open}
                 onRequestClose={this.props.onRequestClose}
             >
-                {`R$${this.props.result}`}
+                {`R$${result}`}
             </Dialog>
         );
     }

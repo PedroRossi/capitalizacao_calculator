@@ -113,12 +113,13 @@ class Form extends Component {
                             style={styles.select}
                         >
                             <MenuItem value={"continua"} primaryText="Continua"/>
-                            <MenuItem value={"composta"} primaryText="Composta"/>
+                            <MenuItem value={"composta"} primaryText="Composta" />
+                            <MenuItem value={"simples"} primaryText="Simples"/>
                         </SelectField>
                     </div>
                     <div>
                         <TextField
-                            floatingLabelText="Tempo da Aplicação (dias)"
+                            floatingLabelText="Tempo da Aplicação (meses)"
                             errorText={this.state.tempoError}
                             value={this.state.tempo}
                             onChange={(ev) => this.handleTextChange(ev, 'tempo')}
